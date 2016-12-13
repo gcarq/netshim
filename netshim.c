@@ -125,7 +125,7 @@ ssize_t recvmsg(int sockfd, struct msghdr *msg, int flags) {
 }
 */
 
-extern int getnameinfo (const struct sockaddr * sa,
+extern int getnameinfo(const struct sockaddr * sa,
 			socklen_t salen, char * host,
 			socklen_t hostlen, char * serv,
 			socklen_t servlen, int flags) {
@@ -147,7 +147,7 @@ struct hostent *gethostbyname(const char *name) {
 int gethostbyname_r(const char *name,
         struct hostent *ret, char *buf, size_t buflen,
         struct hostent **result, int *h_errnop) {
-    struct hostent* (*libc_gethostbyname_r)(const char *, struct hostent *, char *, size_t, struct hostent **, int *) = dlsym(RTLD_NEXT, "gethostbyname_r");
+    int (*libc_gethostbyname_r)(const char *, struct hostent *, char *, size_t, struct hostent **, int *) = dlsym(RTLD_NEXT, "gethostbyname_r");
 
     write_log("[GETHOSTBYNAME_R] %s\n", name);
 
@@ -165,7 +165,7 @@ struct hostent *gethostbyname2(const char *name, int af) {
 int gethostbyname2_r(const char *name, int af,
         struct hostent *ret, char *buf, size_t buflen,
         struct hostent **result, int *h_errnop) {
-    struct hostent* (*libc_gethostbyname2_r)(const char *, int, struct hostent *, char *, size_t, struct hostent **, int *) = dlsym(RTLD_NEXT, "gethostbyname2_r");
+    int (*libc_gethostbyname2_r)(const char *, int, struct hostent *, char *, size_t, struct hostent **, int *) = dlsym(RTLD_NEXT, "gethostbyname2_r");
 
     write_log("[GETHOSTBYNAME2_R] %s\n", name);
 
