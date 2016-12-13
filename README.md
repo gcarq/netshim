@@ -27,7 +27,7 @@ LD_PRELOAD=/full/path/to/netshim.so /usr/bin/foo
 ## Example
 
 ```
-$ LD_PRELOAD=/home/foo/trace-shim.so chromium
+$ LD_PRELOAD=/home/foo/netshim.so chromium
 23:53:53 [CONNECT] AF_UNIX: 	socket_type=0x00000001
 23:53:53 [CONNECT] AF_UNIX: /run/dbus/system_bus_socket	socket_type=0x00000001
 23:53:53 [CONNECT] AF_UNIX: /run/user/1000/pulse/native	socket_type=0x00000001
